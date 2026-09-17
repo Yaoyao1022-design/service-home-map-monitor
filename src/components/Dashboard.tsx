@@ -44,6 +44,7 @@ const CAPACITY_RANK_COLUMNS = ['总产能', '已用产能']
 const ENGINEER_ORDER_COLUMNS = ['完成', '取消', '遗留']
 const ENGINEER_DURATION_COLUMNS = ['服务时长', '在途时长']
 const ENGINEER_EFF_COLUMNS = ['近7日出勤', '近7日完工']
+const ENGINEER_SITE_EFF_COLUMNS = ['出勤', '完工']
 const ENGINEER_SCHEDULE_COLUMNS = ['次日单量', '后3日单量']
 
 function placeRankColumns(tab: number) {
@@ -55,7 +56,7 @@ function placeRankColumns(tab: number) {
 function engineerRankColumns(level: ViewLevel, tab: number) {
   if (tab === 1) {
     if (level === 'station' || level === 'grid') {
-      return [...ENGINEER_EFF_COLUMNS, ...ENGINEER_DURATION_COLUMNS]
+      return [...ENGINEER_SITE_EFF_COLUMNS, ...ENGINEER_DURATION_COLUMNS]
     }
     return ENGINEER_EFF_COLUMNS
   }
