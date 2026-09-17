@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { BoardModel, DayColumn, MetricGroup, MetricRow, ViewLevel } from '../types'
 import { isPersonLevel } from '../data/mapEntities'
+import { publicUrl } from '../publicUrl'
 import { TrendBoard } from './TrendBoard'
 import { AiReportDrawer } from './AiReportDrawer'
 
@@ -71,9 +72,9 @@ function formatRankMetric(label: string, value: number) {
   return String(value)
 }
 const RANK_MEDALS: Record<number, string> = {
-  1: '/icons/rank-1.png',
-  2: '/icons/rank-2.png',
-  3: '/icons/rank-3.png',
+  1: publicUrl('icons/rank-1.png'),
+  2: publicUrl('icons/rank-2.png'),
+  3: publicUrl('icons/rank-3.png'),
 }
 
 type RankSort = { key: 'rank'; dir: 'asc' | 'desc' } | { key: 'metric'; index: number; dir: 'asc' | 'desc' }
@@ -81,8 +82,8 @@ type RankSort = { key: 'rank'; dir: 'asc' | 'desc' } | { key: 'metric'; index: n
 function sortIconSrc(sort: RankSort, target: 'rank' | number) {
   const active =
     target === 'rank' ? sort.key === 'rank' : sort.key === 'metric' && sort.index === target
-  if (!active) return '/icons/rank-sort-default.svg'
-  return sort.dir === 'asc' ? '/icons/rank-sort-asc.svg' : '/icons/rank-sort-desc.svg'
+  if (!active) return publicUrl('icons/rank-sort-default.svg')
+  return sort.dir === 'asc' ? publicUrl('icons/rank-sort-asc.svg') : publicUrl('icons/rank-sort-desc.svg')
 }
 
 function nextDir(prev: RankSort, key: RankSort['key'], index?: number): RankSort {
@@ -205,8 +206,8 @@ function MetricLine({
             onTrend?.()
           }}
         >
-          <img className="trend-off" src="/nav/trend-default.svg" alt="" width={14} height={14} />
-          <img className="trend-on" src="/nav/trend-selected.svg" alt="" width={14} height={14} />
+          <img className="trend-off" src={publicUrl('nav/trend-default.svg')} alt="" width={14} height={14} />
+          <img className="trend-on" src={publicUrl('nav/trend-selected.svg')} alt="" width={14} height={14} />
         </button>
       </div>
       <div className="metric-vals">
@@ -362,7 +363,7 @@ export function Dashboard({
         onClick={onToggleCollapsed}
       >
         <img
-          src={collapsed ? '/icons/board-handle-expand.svg' : '/icons/board-handle-collapse.svg'}
+          src={collapsed ? publicUrl('icons/board-handle-expand.svg') : publicUrl('icons/board-handle-collapse.svg')}
           width={16}
           height={72}
           alt=""
@@ -392,8 +393,8 @@ export function Dashboard({
                 aria-pressed={weatherOn}
                 onClick={onWeather}
               >
-                <img className="btn-icon-off" src="/icons/sun.svg" alt="" />
-                <img className="btn-icon-on" src="/icons/sun-hover.svg" alt="" />
+                <img className="btn-icon-off" src={publicUrl('icons/sun.svg')} alt="" />
+                <img className="btn-icon-on" src={publicUrl('icons/sun-hover.svg')} alt="" />
                 天气
               </button>
             )}
@@ -404,8 +405,8 @@ export function Dashboard({
               aria-pressed={aiOpen}
               onClick={() => setAiOpen((open) => !open)}
             >
-              <img className="btn-icon-off" src="/icons/ai.svg" alt="" />
-              <img className="btn-icon-on" src="/icons/ai-hover.svg" alt="" />
+              <img className="btn-icon-off" src={publicUrl('icons/ai.svg')} alt="" />
+              <img className="btn-icon-on" src={publicUrl('icons/ai-hover.svg')} alt="" />
               AI报告
             </button>
             )}
@@ -571,7 +572,7 @@ export function Dashboard({
                       <span className="rank-badge">{item.rank}</span>
                     )}
                     {engineer && (
-                      <img className="rank-avatar" src="/icons/rank-avatar.png" width={30} height={30} alt="" />
+                      <img className="rank-avatar" src={publicUrl('icons/rank-avatar.png')} width={30} height={30} alt="" />
                     )}
                     <div className="rank-copy">
                       <div className="rank-title-line">

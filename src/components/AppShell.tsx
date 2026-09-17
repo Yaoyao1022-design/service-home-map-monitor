@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react'
+import { publicUrl } from '../publicUrl'
 
 const TOP_MENUS = [
   { key: 'home', label: '首页' },
@@ -6,13 +7,13 @@ const TOP_MENUS = [
 ]
 
 const ICON_MENUS = [
-  { key: 'home', label: '首页', icon: '/nav/icon-home.svg' },
-  { key: 'monitor', label: '菜单入口', icon: '/nav/icon-export.svg', active: true },
-  { key: 'order', label: '菜单入口', icon: '/nav/icon-ecology.svg' },
-  { key: 'site', label: '菜单入口', icon: '/nav/icon-feedback.svg' },
-  { key: 'staff', label: '菜单入口', icon: '/nav/icon-form.svg' },
-  { key: 'cap', label: '菜单入口', icon: '/nav/icon-help.svg' },
-  { key: 'data', label: '菜单入口', icon: '/nav/icon-data.svg' },
+  { key: 'home', label: '首页', icon: publicUrl('nav/icon-home.svg') },
+  { key: 'monitor', label: '菜单入口', icon: publicUrl('nav/icon-export.svg'), active: true },
+  { key: 'order', label: '菜单入口', icon: publicUrl('nav/icon-ecology.svg') },
+  { key: 'site', label: '菜单入口', icon: publicUrl('nav/icon-feedback.svg') },
+  { key: 'staff', label: '菜单入口', icon: publicUrl('nav/icon-form.svg') },
+  { key: 'cap', label: '菜单入口', icon: publicUrl('nav/icon-help.svg') },
+  { key: 'data', label: '菜单入口', icon: publicUrl('nav/icon-data.svg') },
 ]
 
 const TREE_CHILDREN = [
@@ -46,10 +47,10 @@ export function AppShell({ children }: Props) {
     <div className="app">
       <header className="header">
         <div className="brand">
-          <img className="logo-img" src="/nav/logo.svg" alt="京东服务工作台" />
+          <img className="logo-img" src={publicUrl('nav/logo.svg')} alt="京东服务工作台" />
         </div>
         <button className="outlet-chip" type="button">
-          <img src="/nav/home-mini.svg" alt="" />
+          <img src={publicUrl('nav/home-mini.svg')} alt="" />
           网点端
         </button>
         <nav className="top-nav">
@@ -61,11 +62,11 @@ export function AppShell({ children }: Props) {
         </nav>
         <div className="user-area">
           <button className="notice" type="button">
-            <img src="/nav/notice.svg" alt="" />
+            <img src={publicUrl('nav/notice.svg')} alt="" />
             <span>通知</span>
             <i className="badge">5</i>
           </button>
-          <img className="avatar" src="/nav/avatar.svg" alt="" />
+          <img className="avatar" src={publicUrl('nav/avatar.svg')} alt="" />
           <span className="user-name">郝铭梓</span>
         </div>
       </header>
@@ -101,7 +102,7 @@ export function AppShell({ children }: Props) {
             title={collapsed ? '展开菜单' : '收起菜单'}
             onClick={() => setCollapsed((v) => !v)}
           >
-            <img src={collapsed ? '/nav/toggle-expand.svg' : '/nav/toggle-collapse.svg'} alt="" />
+            <img src={collapsed ? publicUrl('nav/toggle-expand.svg') : publicUrl('nav/toggle-collapse.svg')} alt="" />
           </button>
         </aside>
 
@@ -111,7 +112,7 @@ export function AppShell({ children }: Props) {
               <div className={`tab ${tab.active ? 'active' : ''}`} key={tab.id}>
                 <span>{tab.title}</span>
                 <span className="tab-close">
-                  <img src="/nav/tab-close.svg" alt="" />
+                  <img src={publicUrl('nav/tab-close.svg')} alt="" />
                 </span>
               </div>
             ))}

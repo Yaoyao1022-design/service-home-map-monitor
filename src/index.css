@@ -16,6 +16,7 @@
   --tab-h: 48px;
   --sidebar-w: 72px;
   --sidebar-expanded: 190px;
+  --select-arrow: url("/nav/arrow-down.svg");
 }
 
 * { box-sizing: border-box; }
@@ -399,7 +400,7 @@ select.control {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 36px;
-  background-image: url("/nav/arrow-down.svg");
+  background-image: var(--select-arrow);
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px 12px;

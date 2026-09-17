@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
 import type { DayColumn, MetricRow } from '../types'
+import { publicUrl } from '../publicUrl'
 
 const COLORS = ['#3c6ef0', '#3ad3d9', '#435889', '#3ec986', '#ffd83d']
 const CHART_WIDTH = 320
@@ -197,7 +198,7 @@ export function TrendBoard({ groups, dayColumns, onClose }: Props) {
             <h4>{group.label}</h4>
             {index === 0 && (
               <button className="trend-close" type="button" aria-label="关闭" onClick={onClose}>
-                <img src="/nav/close-big.svg" alt="" width={16} height={16} />
+                <img src={publicUrl('nav/close-big.svg')} alt="" width={16} height={16} />
               </button>
             )}
           </div>

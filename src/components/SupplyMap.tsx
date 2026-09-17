@@ -8,6 +8,7 @@ import {
   type MapFence,
   type MapWorker,
 } from '../data/mapEntities'
+import { publicUrl } from '../publicUrl'
 
 type Props = {
   level: ViewLevel
@@ -198,7 +199,7 @@ function makeNameBubbleSeries(seriesName: string, items: BubbleItem[], z: number
       children.push({
         type: 'image',
         style: {
-          image: '/icons/tooltip-arrow.svg',
+          image: publicUrl('icons/tooltip-arrow.svg'),
           x: center[0] - arrowW / 2,
           y: arrowTop,
           width: arrowW,
@@ -772,7 +773,7 @@ export function SupplyMap({
             name: '师傅',
             coordinateSystem: 'geo',
             geoIndex: 0,
-            symbol: 'image:///icons/map-worker.png',
+            symbol: `image://${publicUrl('icons/map-worker.png')}`,
             symbolSize: iconPx,
             symbolOffset: [0, -iconPx / 2],
             symbolKeepAspect: true,

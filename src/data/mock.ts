@@ -19,6 +19,7 @@ import {
   workersOfGrid,
   workersOfStation,
 } from './mapEntities'
+import { publicUrl } from '../publicUrl'
 
 export const FULFILLERS = ['安维', '五星']
 export const DEFAULT_FULFILLERS = ['安维', '五星']
@@ -354,7 +355,7 @@ export function formatHeatValue(mode: HeatMode, value?: number) {
 export function formatHeatTooltip(mode: HeatMode, name: string, value?: number) {
   const label = escapeHtml(tooltipName(name))
   const amount = value == null ? '' : `<span class="map-tip-value">${escapeHtml(tooltipValue(mode, value))}</span>`
-  return `<div class="map-tip"><span class="map-tip-name">${label}</span>${amount}<img class="map-tip-arrow" src="/icons/tooltip-arrow.svg" width="10" height="6" alt="" /></div>`
+  return `<div class="map-tip"><span class="map-tip-name">${label}</span>${amount}<img class="map-tip-arrow" src="${publicUrl('icons/tooltip-arrow.svg')}" width="10" height="6" alt="" /></div>`
 }
 
 function hash(text: string) {

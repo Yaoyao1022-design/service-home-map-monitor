@@ -1,4 +1,5 @@
 import type { ViewLevel } from './types'
+import { publicUrl } from './publicUrl'
 
 export type GeoJSON = {
   type?: string
@@ -44,7 +45,7 @@ function outlineOf(geo: GeoJSON, name: string): GeoJSON | null {
 
 async function loadCityOutline(province: string, city: string, china: GeoJSON): Promise<GeoJSON> {
   if (province === '河北省') {
-    const hebei = await fetchGeo('/geo/hebei.json')
+    const hebei = await fetchGeo(publicUrl('geo/hebei.json'))
     return outlineOf(hebei, city) ?? hebei
   }
 
@@ -68,7 +69,7 @@ async function loadCityOutline(province: string, city: string, china: GeoJSON): 
 }
 
 export async function loadGeo(level: ViewLevel, province: string, city: string): Promise<GeoJSON> {
-  const china = await fetchGeo('/geo/china.json')
+  const china = await fetchGeo(publicUrl('geo/china.json'))
 
   if (level === 'nation') return china
 
@@ -76,7 +77,7 @@ export async function loadGeo(level: ViewLevel, province: string, city: string):
     return loadCityOutline(province, city, china)
   }
 
-  if (province === '河北省') return fetchGeo('/geo/hebei.json')
+  if (province === '河北省') return fetchGeo(publicUrl('geo/hebei.json'))
 
   const code = adcodeOf(china, province)
   if (code) {

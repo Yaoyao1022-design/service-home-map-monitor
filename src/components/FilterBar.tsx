@@ -16,6 +16,7 @@ import {
   stationsOfProvince,
   todayISO,
 } from '../data/mock'
+import { publicUrl } from '../publicUrl'
 
 type Props = {
   draft: FilterState
@@ -90,12 +91,12 @@ function FulfillerSelect({
                   toggle(name)
                 }}
               >
-                <img src="/icons/tag-close.svg" alt="" />
+                <img src={publicUrl('icons/tag-close.svg')} alt="" />
               </button>
             </span>
           ))}
         </div>
-        <img className="multi-select-caret" src="/nav/arrow-down.svg" alt="" />
+        <img className="multi-select-caret" src={publicUrl('nav/arrow-down.svg')} alt="" />
       </div>
       {open && (
         <div className="multi-select-menu" role="listbox" aria-multiselectable="true">

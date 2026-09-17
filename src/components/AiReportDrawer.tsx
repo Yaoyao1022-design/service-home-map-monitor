@@ -1,4 +1,5 @@
 import type { BoardModel } from '../types'
+import { publicUrl } from '../publicUrl'
 
 type Props = {
   board: BoardModel
@@ -39,7 +40,7 @@ export function AiReportDrawer({ board, onClose }: Props) {
         <div className="ai-drawer-head">
           <h3>智能分析报告</h3>
           <button className="trend-close" type="button" aria-label="关闭" onClick={onClose}>
-            <img src="/nav/close-big.svg" alt="" width={16} height={16} />
+            <img src={publicUrl('nav/close-big.svg')} alt="" width={16} height={16} />
           </button>
         </div>
         <div className="ai-drawer-body">

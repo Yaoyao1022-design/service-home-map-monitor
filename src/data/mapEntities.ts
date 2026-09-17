@@ -1,4 +1,5 @@
 import type { RankItem } from '../types'
+import { publicUrl } from '../publicUrl'
 
 export type MapFence = {
   name: string
@@ -390,11 +391,11 @@ export function workerToRankSeed(worker: MapWorker) {
 
 export function formatFenceTooltip(name: string, extra?: string) {
   const amount = extra ? `<span class="map-tip-value">${extra}</span>` : ''
-  return `<div class="map-tip"><span class="map-tip-name">${name}</span>${amount}<img class="map-tip-arrow" src="/icons/tooltip-arrow.svg" width="10" height="6" alt="" /></div>`
+  return `<div class="map-tip"><span class="map-tip-name">${name}</span>${amount}<img class="map-tip-arrow" src="${publicUrl('icons/tooltip-arrow.svg')}" width="10" height="6" alt="" /></div>`
 }
 
 export function formatWorkerTooltip(worker: MapWorker) {
-  return `<div class="map-tip is-worker"><span class="map-tip-name">${worker.name}</span><img class="map-tip-arrow" src="/icons/tooltip-arrow.svg" width="10" height="6" alt="" /></div>`
+  return `<div class="map-tip is-worker"><span class="map-tip-name">${worker.name}</span><img class="map-tip-arrow" src="${publicUrl('icons/tooltip-arrow.svg')}" width="10" height="6" alt="" /></div>`
 }
 
 export function isDeepMapLevel(level: string) {
